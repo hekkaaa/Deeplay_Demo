@@ -13,21 +13,36 @@
         </Grid.RowDefinitions>
             
         <Grid x:Name="GreneralPanel" Background="AliceBlue" Grid.Row="0">
-            <Button Content="Добавить" HorizontalAlignment="Left" Margin="58,36,0,0" VerticalAlignment="Top"/>
-
+            <Button Content="Добавить" HorizontalAlignment="Left" Margin="58,36,0,0" VerticalAlignment="Top" Click="Button_Click"/>
         </Grid>
         <Grid Grid.Row="1">
-            <ListBox ItemsSource="{Binding CollectionEmployees}">
+            <DataGrid x:Name="GeneralTable" ItemsSource="{Binding CollectionEmployees, UpdateSourceTrigger=PropertyChanged}"  AutoGenerateColumns="False" RowBackground="GhostWhite" AlternatingRowBackground ="LightGray" GridLinesVisibility="None" IsReadOnly="True">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="ФИО" Width="1*">
+                        <DataGridTextColumn.Binding>
+                            <MultiBinding StringFormat="{}{0} {1} {2}">
+                                <Binding Path="Name" />
+                                <Binding Path="Middlename" />
+                                <Binding Path="Surname" />
+                            </MultiBinding>
+                        </DataGridTextColumn.Binding>
+                    </DataGridTextColumn>
+                    <DataGridTextColumn Header="Должность" Binding="{Binding Role.Name}" Width="*"/>
+                    <DataGridTextColumn Header="Дата Рождения" Binding="{Binding Birthdate}" Width="0.30*"/>
+                </DataGrid.Columns>
+            </DataGrid>
+            <!--<ListBox ItemsSource="{Binding CollectionEmployees}">
                 <ListBox.ItemTemplate>
                     <DataTemplate>
                         <StackPanel Orientation="Horizontal">
                             <TextBlock Text="{Binding Name}" Margin="20,0,0,0"/>
+                            <TextBlock Text="{Binding Middlename}" Margin="20,0,0,0"/>
                             <TextBlock Text="{Binding Surname}" Margin="20,0,0,0"/>
-                            <TextBlock Text="{Binding Post}" Margin="20,0,0,0"/>
+                            <TextBlock Text="{Binding Role.Name}" Margin="20,0,0,0"/>
                         </StackPanel>
                     </DataTemplate>
                 </ListBox.ItemTemplate>
-            </ListBox>
+            </ListBox>-->
         </Grid>
     </Grid>
 </Window>

@@ -4,10 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace PersonnelAccountingApp.Models
+namespace PersonnelAccountingApp.Data
 {
-    public class ManagerDepart : Employees
+    internal class RoleRepository
     {
-        public string Department { get; set; }
     }
 }

@@ -1,13 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.ComponentModel.DataAnnotations.Schema;
 
 namespace PersonnelAccountingApp.Models
 {
-    public class Director : Employees
+    [Table("Directors")]
+    public class Director : Role
     {
-        public string Industry { get; set; }
+        public int Id { get; set; }
+        public virtual string? Industry { get; set; }
     }
 }
