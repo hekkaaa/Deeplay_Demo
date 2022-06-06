@@ -1,7 +1,12 @@
-﻿namespace PersonnelAccountingApp.Models.Enums
+﻿using System.ComponentModel;
+
+namespace PersonnelAccountingApp.Models.Enums
 {
     public enum Gender
     {
-        Male = 1, Female
+        [Description("Мужчина")]
+        Male = 1,
+        [Description("Женщина")]
+        Female
     }
 }

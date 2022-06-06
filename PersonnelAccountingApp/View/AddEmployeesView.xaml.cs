@@ -1,16 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using PersonnelAccountingApp.Models.Enums;
+using PersonnelAccountingApp.ViewModels;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 
 namespace PersonnelAccountingApp.View
 {
@@ -19,9 +9,22 @@ namespace PersonnelAccountingApp.View
     /// </summary>
     public partial class AddEmployeesView : Window
     {
+        private AddEmployeesViewModel _datacontext;
         public AddEmployeesView()
         {
             InitializeComponent();
+            DataContext = new AddEmployeesViewModel();
+            _datacontext = DataContext as AddEmployeesViewModel;
+        }
+
+        private void Button_Close_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+        }
+
+        private void Button_Create_Click(object sender, RoutedEventArgs e)
+        {
+            _datacontext.AddNewEmployees();
         }
     }
 }

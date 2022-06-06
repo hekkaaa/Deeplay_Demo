@@ -2,8 +2,8 @@
 
 namespace PersonnelAccountingApp.Models
 {
-    [Table("Supervisors")]
-    public class Supervisor : Role
+    //[Table("Supervisors")]
+    public class Supervisor
     {
         public int Id { get; set; }
         public string? Name { get; set; }

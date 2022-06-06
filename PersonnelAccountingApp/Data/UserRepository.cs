@@ -19,5 +19,12 @@ namespace PersonnelAccountingApp.Data
             var res = _context.Employees.ToList();
             return res;
         }
+
+        public int AddNewEmployees(Employees newUser)
+        {
+            _context.Employees.Add(newUser);
+            _context.SaveChanges();
+            return newUser.Id;
+        }
     }
 }

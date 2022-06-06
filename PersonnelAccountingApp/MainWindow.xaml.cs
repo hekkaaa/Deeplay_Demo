@@ -17,7 +17,8 @@ namespace PersonnelAccountingApp
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            new AddEmployeesView();
+            AddEmployeesView views =  new AddEmployeesView();
+            views.Show();
         }
     }
 }
